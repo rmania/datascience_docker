@@ -5,7 +5,9 @@
 `apt policy docker.io`
 
 ### Official ubuntu installation
+
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
+
 **Older versions of Docker were called docker or docker-engine. If these are installed  uninstall them**
 `sudo apt-get remove docker docker-engine docker.io`
 
@@ -37,6 +39,7 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
 
 
 ### some checks
+
 **display Docker version**
 `docker version`
 
@@ -46,3 +49,11 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
 **test**
 `sudo docker run hello-world`
 `docker run -it ubunutu bash`
+
+
+**mount a volume so we have access to data. Spinning up a scipy-notebook container**
+`docker run \
+-v /home/diederik/ams/pyprojects/programma_varen/data/rfid/:/home/jovyan/work \
+-d -p 5000:8888 \
+jupyter/scipy-notebook`
+

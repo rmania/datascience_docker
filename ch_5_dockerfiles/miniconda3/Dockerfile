@@ -14,3 +14,9 @@ RUN apt-get install -y curl grep sed dpkg && \
     dpkg -i tini.deb && \
     rm tini.deb && \
     apt-get clean
+# config the ENV varibale to ensure container run properly
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV PATH /opt/conda/bin:$PATH
+# provide ENTRYPOINT specifying the process to be launched when image is instantiated
+# tell docker to run TINI as PID 1
+ENTRYPOINT [ "/usr/bin/tini", "--" ]
